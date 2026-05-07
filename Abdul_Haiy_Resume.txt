@@ -1,0 +1,231 @@
+================================================================================
+                              ABDUL HAIY
+================================================================================
+
+Full-Stack Developer | AI/ML Enthusiast | Cybersecurity Enthusiast
+
+--------------------------------------------------------------------------------
+CONTACT INFORMATION
+--------------------------------------------------------------------------------
+Location :  Jabalpur, India
+Email   :  abdulhaiy1502@gmail.com
+LinkedIn:  linkedin.com/in/spike-commander
+GitHub  :  github.com/spike-commander
+Twitter :  x.com/abdulhaiy1502
+
+================================================================================
+SUMMARY
+================================================================================
+
+Passionate and self-driven Full-Stack Developer with a strong foundation in 
+modern web technologies and a deep interest in Artificial Intelligence, Machine 
+Learning, and Cybersecurity. Currently pursuing B.Tech in Computer Science & 
+Engineering from the prestigious IIIT Hyderabad, with hands-on experience in 
+building scalable applications and contributing to open-source projects.
+
+Eager to solve complex problems, learn new technologies, and collaborate with 
+teams to create meaningful digital solutions that make a positive impact.
+
+================================================================================
+EDUCATION
+================================================================================
+
+B.Tech in Computer Science & Engineering (BTech CSE)
+---------------------------------------------------------------------------
+Institution : IIIT Hyderabad (International Institute of Information Technology)
+Duration    : 2021 - 2025
+Focus Areas : Artificial Intelligence & Machine Learning
+              Full-Stack Web Development
+              Cybersecurity & Ethical Hacking
+Activities  : Active member of Google Developer Student Clubs (GDSC)
+              Regular participant in coding competitions and hackathons
+
+================================================================================
+TECHNICAL SKILLS
+================================================================================
+
+PROGRAMMING LANGUAGES
+  • JavaScript/TypeScript  • Python                • Java
+  • Go                      • Rust                 • SQL
+
+FRONTEND DEVELOPMENT
+  • React.js                • Next.js              • Tailwind CSS
+  • HTML5                   • CSS3                • Redux/Context API
+
+BACKEND & API DEVELOPMENT
+  • Node.js                 • Express.js           • Django
+  • FastAPI                 • Spring Boot          • GraphQL
+  • REST API Design         • Microservices        • WebSocket
+
+DATABASES
+  • PostgreSQL              • MongoDB              • Redis
+  • Firebase                • MySQL                • SQLite
+
+AI/ML & DATA SCIENCE
+  • TensorFlow              • PyTorch              • OpenCV
+  • MediaPipe              • Scikit-learn         • NumPy/Pandas
+
+CLOUD & DEVOPS
+  • Amazon Web Services    • Docker               • Kubernetes
+  • Git/GitHub             • GitHub Actions       • CI/CD Pipelines
+
+OTHER TECHNOLOGIES
+  • Linux                  • Solidity            • Web3.js
+  • Metamask Integration   • Smart Contracts      • Truffle/Hardhat
+
+================================================================================
+PROJECTS
+================================================================================
+
+1. HAND-GESTURE-GAME-CONTROL
+   Technologies : Python, TensorFlow, OpenCV, MediaPipe, Pygame
+   Category     : AI/ML | Computer Vision | Gaming
+
+   An innovative project that enables users to control games using hand 
+   gestures detected through webcam. Features real-time gesture recognition
+   powered by machine learning models with high accuracy and low latency.
+
+   Key Features:
+   • Real-time hand landmark detection using MediaPipe
+   • Custom-trained ML models for gesture classification
+   • Support for multiple game control schemes
+   • Cross-platform compatibility
+   GitHub : github.com/spike-commander/hand-gesture-game-control
+
+2. CHAINFAIR
+   Technologies : Solidity, React, Web3.js, Ethereum, IPFS
+   Category     : Blockchain | Web3 | DeFi
+
+   A decentralized application (DApp) built on Ethereum blockchain that 
+   ensures transparent and fair trading through smart contracts. Features
+   an auction system with guaranteed fairness.
+
+   Key Features:
+   • Smart contract-based escrow system
+   • Decentralized identity verification
+   • Transparent bidding mechanism
+   • NFT integration support
+   GitHub : github.com/spike-commander/chainfair
+
+3. ANDROID CHAT APPLICATION
+   Technologies : Kotlin, Firebase, Android SDK, Material Design
+   Category     : Mobile Development | Real-time Communication
+
+   Open-source contribution to a feature-rich Android chat application
+   with real-time messaging, media sharing, and modern UI/UX.
+
+   Key Features:
+   • Real-time messaging with Firebase Realtime Database
+   • Image/file sharing capabilities
+   • Push notifications
+   • End-to-end encryption ready
+   GitHub : github.com/bimalkaf/Android_Chat_Application
+
+================================================================================
+HACKATHONS & ACHIEVEMENTS
+================================================================================
+
+  Event                        | Achievement         | Project
+ ------------------------------|--------------------|---------------------------
+  AI Innovation Challenge 2024  | 1st Place          | Hand Gesture Recognition
+  ETHIndia Blockchain Hackathon | 2nd Place          | ChainFair - DeFi Platform
+  Smart India Hackathon         | Top 10 Finalist    | Rural Healthcare Solution
+  College Tech Fest             | Best UI/UX Award   | E-commerce Dashboard
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+  ✓ AWS Certified Solutions Architect        - Amazon Web Services (2024)
+  ✓ Deep Learning Specialization            - DeepLearning.AI (2024)
+  ✓ Meta Front-End Developer Professional   - Meta (2023)
+  ✓ Google Cybersecurity Certificate        - Google (2023)
+  ✓ Responsive Web Design                  - freeCodeCamp (2023)
+  ✓ JavaScript Algorithms & Data Structures - freeCodeCamp (2023)
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+FULL STACK DEVELOPER (Freelance)
+January 2023 - Present
+
+  • Building scalable web applications using React, Node.js, and cloud
+    technologies for clients across various industries
+  • Implementing RESTful APIs and GraphQL endpoints
+  • Deploying and managing applications on AWS
+  • Collaborating with clients to understand requirements and deliver
+    solutions on time
+
+CTF PLAYER & SECURITY RESEARCHER
+January 2022 - Present
+
+  • Active participant in Capture The Flag (CTF) competitions
+  • Explored areas: Web Exploitation, Cryptography, Reverse Engineering,
+    Forensics, and Binary Exploitation
+  • Platforms: TryHackMe, HackTheBox, CTFtime, picoCTF
+  • Completed multiple cybersecurity courses and labs
+
+================================================================================
+LEADERSHIP & COMMUNITY INVOLVEMENT
+================================================================================
+
+GDSC (GOOGLE DEVELOPER STUDENT CLUBS) - LEAD
+2023 - Present
+
+  • Leading a community of 200+ developers at IIIT Hyderabad
+  • Organizing workshops on Google technologies and modern development
+  • Coordinating hackathons and coding events
+  • Mentoring students in open-source contributions
+
+OPEN SOURCE CONTRIBUTOR
+2022 - Present
+
+  • Active contributor to multiple open-source projects on GitHub
+  • 100+ merged pull requests across various repositories
+  • Focus areas: Web development tools, developer utilities, and
+    educational platforms
+
+================================================================================
+KEY STRENGTHS
+================================================================================
+
+  ◆ Rapid Learning     : Quick grasp of new technologies and frameworks
+  ◆ Problem Solving    : Strong analytical and debugging skills
+  ◆ Team Collaboration: Effective communication and teamwork
+  ◆ Self-Motivated    : Consistent self-learning and improvement
+  ◆ Attention to Detail: Clean, maintainable, and well-documented code
+
+================================================================================
+INTERESTS & HOBBIES
+================================================================================
+
+  🛡️  Cybersecurity & CTF Challenges
+  🤖  Artificial Intelligence & Machine Learning
+  ⛓️  Blockchain Technology & Web3
+  📱  Mobile App Development
+  🌐  Open Source Contributing
+  📚  Technical Blogging & Knowledge Sharing
+  🎮  Gaming (especially with hand gestures!)
+  ☕ Coffee Enthusiast
+
+================================================================================
+QUOTE
+================================================================================
+
+  "Talk is cheap. Show me the code." 
+                                          - Linus Torvalds
+
+================================================================================
+REFERENCES
+================================================================================
+
+Available upon request.
+
+================================================================================
+
+Last Updated : April 2024
+LinkedIn     : linkedin.com/in/spike-commander
+GitHub       : github.com/spike-commander
+
+================================================================================

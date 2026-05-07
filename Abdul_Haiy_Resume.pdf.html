@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Abdul Haiy - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 10px;
+            line-height: 1.4;
+            color: #1a1a1a;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .header .title {
+            font-size: 12px;
+            color: #555;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 9px;
+            flex-wrap: wrap;
+        }
+
+        .contact span {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        h2 {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 3px;
+            margin: 10px 0 6px 0;
+            color: #1a1a1a;
+        }
+
+        .summary {
+            font-size: 9px;
+            text-align: justify;
+            color: #333;
+        }
+
+        .section {
+            margin-bottom: 8px;
+        }
+
+        .two-col {
+            display: flex;
+            gap: 15px;
+        }
+
+        .two-col .col {
+            flex: 1;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .skill-item {
+            font-size: 9px;
+        }
+
+        .skill-item strong {
+            color: #1a1a1a;
+        }
+
+        .skill-item span {
+            color: #555;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 8px;
+        }
+
+        .experience-item h3, .project-item h3 {
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .experience-item .sub {
+            font-size: 9px;
+            color: #555;
+            font-style: italic;
+        }
+
+        .experience-item p, .project-item p {
+            font-size: 9px;
+            color: #333;
+        }
+
+        .tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin: 3px 0;
+        }
+
+        .tag {
+            font-size: 8px;
+            background: #f0f0f0;
+            padding: 1px 5px;
+            border-radius: 3px;
+            color: #555;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+            font-size: 9px;
+        }
+
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .achievement .icon {
+            font-size: 10px;
+        }
+
+        .certs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
+            font-size: 9px;
+        }
+
+        .cert {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .cert .icon {
+            color: #2e7d32;
+        }
+
+        .interests {
+            font-size: 9px;
+            color: #555;
+        }
+
+        .quote {
+            text-align: center;
+            font-size: 9px;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px solid #eee;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                font-size: 9px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 10px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .two-col {
+                gap: 10px;
+            }
+
+            .achievements, .certs {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Abdul Haiy</h1>
+        <p class="title">Full-Stack Developer | AI/ML Enthusiast | Cybersecurity Enthusiast</p>
+        <div class="contact">
+            <span>📍 Jabalpur, India</span>
+            <span>📧 abdulhaiy1502@gmail.com</span>
+            <span>🔗 linkedin.com/in/spike-commander</span>
+            <span>🐙 github.com/spike-commander</span>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2>Summary</h2>
+        <p class="summary">Passionate and self-driven Full-Stack Developer with strong expertise in modern web technologies, AI/ML, and Cybersecurity. Currently pursuing B.Tech in Computer Science & Engineering from IIIT Hyderabad (2021-2025). Active CTF participant, open-source contributor, and hackathon winner with hands-on experience in building scalable applications and creating innovative solutions.</p>
+    </section>
+
+    <section class="section">
+        <h2>Education</h2>
+        <div class="experience-item">
+            <h3>B.Tech in Computer Science & Engineering</h3>
+            <p class="sub">IIIT Hyderabad (International Institute of Information Technology) | 2021 - 2025</p>
+            <p>Focus: AI/ML, Full-Stack Development, Cybersecurity | Member: Google Developer Student Clubs (GDSC)</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <strong>Languages</strong><br>
+                <span>JavaScript, TypeScript, Python, Java, Go, Rust</span>
+            </div>
+            <div class="skill-item">
+                <strong>Frontend</strong><br>
+                <span>React, Next.js, Tailwind, HTML, CSS</span>
+            </div>
+            <div class="skill-item">
+                <strong>Backend</strong><br>
+                <span>Node.js, Express, Django, FastAPI, Spring</span>
+            </div>
+            <div class="skill-item">
+                <strong>Databases</strong><br>
+                <span>PostgreSQL, MongoDB, Redis, Firebase</span>
+            </div>
+            <div class="skill-item">
+                <strong>AI/ML</strong><br>
+                <span>TensorFlow, PyTorch, OpenCV, MediaPipe</span>
+            </div>
+            <div class="skill-item">
+                <strong>Cloud & DevOps</strong><br>
+                <span>AWS, Docker, Kubernetes, Git, CI/CD</span>
+            </div>
+            <div class="skill-item">
+                <strong>Mobile</strong><br>
+                <span>Kotlin, Android SDK, Firebase</span>
+            </div>
+            <div class="skill-item">
+                <strong>Other</strong><br>
+                <span>Linux, Solidity, Web3, Blockchain</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Projects</h2>
+        <div class="two-col">
+            <div class="col">
+                <div class="project-item">
+                    <h3>Hand-Gesture-Game-Control</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span>
+                    </div>
+                    <p>AI-powered system enabling game control via hand gestures using computer vision and ML models for real-time detection.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Android Chat Application</h3>
+                    <div class="tags">
+                        <span class="tag">Kotlin</span><span class="tag">Firebase</span><span class="tag">Android</span>
+                    </div>
+                    <p>Open-source contribution featuring real-time messaging, media sharing, and modern UI/UX design.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="project-item">
+                    <h3>ChainFair</h3>
+                    <div class="tags">
+                        <span class="tag">Solidity</span><span class="tag">React</span><span class="tag">Web3.js</span><span class="tag">Ethereum</span>
+                    </div>
+                    <p>Decentralized DApp for fair trading and transparent auctions with smart contracts for secure transactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Hackathons & Achievements</h2>
+        <div class="achievements">
+            <div class="achievement"><span class="icon">🏆</span> 1st Place - AI Innovation Challenge 2024</div>
+            <div class="achievement"><span class="icon">🥈</span> 2nd Place - ETHIndia Blockchain Hackathon</div>
+            <div class="achievement"><span class="icon">⭐</span> Top 10 - Smart India Hackathon</div>
+            <div class="achievement"><span class="icon">🎨</span> Best UI/UX - College Tech Fest</div>
+            <div class="achievement"><span class="icon">💻</span> 100+ Merged PRs - Open Source</div>
+            <div class="achievement"><span class="icon">🏅</span> Active CTF Player - Multiple Platforms</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Certifications</h2>
+        <div class="certs">
+            <div class="cert"><span class="icon">✓</span> AWS Solutions Architect</div>
+            <div class="cert"><span class="icon">✓</span> Deep Learning (DeepLearning.AI)</div>
+            <div class="cert"><span class="icon">✓</span> Meta Front-End Developer</div>
+            <div class="cert"><span class="icon">✓</span> Google Cybersecurity</div>
+            <div class="cert"><span class="icon">✓</span> Responsive Web Design</div>
+            <div class="cert"><span class="icon">✓</span> JavaScript Algorithms</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Experience</h2>
+        <div class="two-col">
+            <div class="col">
+                <div class="experience-item">
+                    <h3>Full Stack Developer</h3>
+                    <p class="sub">Freelance | 2023 - Present</p>
+                    <p>Building scalable web apps with React, Node.js, and AWS. Deploying cloud-native solutions and contributing to open source.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="experience-item">
+                    <h3>CTF Player & Security Researcher</h3>
+                    <p class="sub">2022 - Present</p>
+                    <p>Participating in CTF competitions. Exploring web exploitation, cryptography, reverse engineering, and forensics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Leadership & Community</h2>
+        <div class="two-col">
+            <div class="col">
+                <div class="experience-item">
+                    <h3>GDSC Lead - IIIT Hyderabad</h3>
+                    <p>Leading 200+ developers. Organizing workshops, hackathons, and mentoring students in open-source contributions.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="experience-item">
+                    <h3>Open Source Contributor</h3>
+                    <p>Active contributor with 100+ merged PRs across various repositories focusing on developer tools and utilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Interests</h2>
+        <p class="interests">🛡️ Cybersecurity & CTF | 🤖 AI/ML | ⛓️ Blockchain & Web3 | 📱 Mobile Development | 🌐 Open Source | ☕ Coffee Enthusiast</p>
+    </section>
+
+    <div class="quote">
+        "Talk is cheap. Show me the code." - Linus Torvalds
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                window.print();
+            }, 500);
+        };
+    </script>
+</body>
+</html>
