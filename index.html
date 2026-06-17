@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>abdul haiy — developer & security researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000;
+            --text: #fff;
+            --text-secondary: #fff;
+            --text-dim: #fff;
+            --text-dimmer: #fff;
+            --border: #141414;
+            --surface: #0a0a0a;
+            --surface-hover: #111;
+            --surface-card: #050505;
+            --thumb-bg: #0a0a0a;
+            --thumb-text: #fff;
+            --blockquote-bg: #0a0a0a;
+            --blockquote-border: #1f1f1f;
+            --tag-bg: #0a0a0a;
+            --tag-text: #fff;
+            --icon-bg: #0a0a0a;
+            --icon-text: #fff;
+            --sec-line: #141414;
+            --footer: #fff;
+            --back-hover: #fff;
+            --link-hover: #fff;
+            --all-hover: #fff;
+            --c1: #0a0a0a; --c2: #050505; --c3: #0f0f0f;
+            --c4: #080808; --c5: #111; --c6: #070707;
+        }
+        .light {
+            --bg: #fff;
+            --text: #1a1a1a;
+            --text-secondary: #666;
+            --text-dim: #999;
+            --text-dimmer: #bbb;
+            --border: #f2f2f2;
+            --surface: #fafafa;
+            --surface-hover: #f5f5f5;
+            --surface-card: transparent;
+            --thumb-bg: #f5f5f5;
+            --thumb-text: #ddd;
+            --blockquote-bg: #fafafa;
+            --blockquote-border: #e5e5e5;
+            --tag-bg: #f5f5f5;
+            --tag-text: #999;
+            --icon-bg: #f5f5f5;
+            --icon-text: #999;
+            --sec-line: #eee;
+            --footer: #ddd;
+            --back-hover: #111;
+            --link-hover: #111;
+            --all-hover: #111;
+            --c1: #f0f0f0; --c2: #e8e8e8; --c3: #f5f0e8;
+            --c4: #eef0f5; --c5: #f5eeef; --c6: #eef5ee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            transition: background 0.3s, color 0.3s;
+        }
+        a { color: inherit; text-decoration: none; }
+        .link-underline { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--text-dim); transition: text-decoration-color 0.2s; }
+        .link-underline:hover { text-decoration-color: var(--text); }
+        .mono { font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif; }
+        .serif { font-family: 'Times New Roman', Times, serif; }
+        .dim { color: var(--text-dim); }
+        .dimmer { color: var(--text-dimmer); }
+
+        .container { max-width: 620px; margin: 0 auto; padding: 0 24px; }
+
+        /* ─── Theme Toggle ─── */
+        .toggle-wrap {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+        }
+        .toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text-dim);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+            user-select: none;
+        }
+        .toggle-btn:hover {
+            border-color: var(--text-dim);
+            color: var(--text);
+        }
+
+        /* ─── Hero ─── */
+        .hero { padding-top: 40px; padding-bottom: 40px; }
+        .hero h1 {
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            color: var(--text);
+        }
+        .hero .tags {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--text-dim);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+        .hero .tagline {
+            margin-top: 28px;
+            font-size: 14px;
+            font-weight: 500;
+            font-style: italic;
+            color: var(--text);
+        }
+        .hero .meta {
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--text-dimmer);
+            line-height: 1.6;
+        }
+        .hero .meta .native { color: var(--text-dim); }
+        .hero .links {
+            margin-top: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        .hero .links a { transition: color 0.2s; }
+        .hero .links a:hover { color: var(--link-hover); }
+
+        /* ─── Sections ─── */
+        section { padding: 32px 0; }
+        .sec-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .sec-header h2 {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text);
+            text-transform: lowercase;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+        .sec-header .line {
+            flex: 1;
+            height: 1px;
+            background: var(--sec-line);
+        }
+
+        .current p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            max-width: 520px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        /* ─── Previous ─── */
+        .prev-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .prev-item:last-child { border-bottom: none; }
+        .prev-logo {
+            width: 22px; height: 22px;
+            border-radius: 5px;
+            background: var(--icon-bg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; color: var(--icon-text);
+            font-weight: 600; font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            flex-shrink: 0; margin-top: 3px;
+        }
+        .prev-info .company { font-size: 13px; font-weight: 500; color: var(--text); }
+        .prev-info .role { font-size: 12px; color: var(--text-secondary); margin-top: 1px; }
+        .prev-info .loc { font-size: 11px; color: var(--text-dimmer); margin-top: 1px; }
+
+        /* ─── Builds ─── */
+        .repo-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.15s;
+            margin: 0 -10px;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-radius: 6px;
+        }
+        .repo-item:last-child { border-bottom: none; }
+        .repo-item:hover { background: var(--surface-hover); }
+        .repo-icon {
+            width: 22px; height: 22px;
+            border-radius: 5px;
+            background: var(--icon-bg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 10px; color: var(--icon-text);
+            flex-shrink: 0; margin-top: 3px;
+            transition: background 0.2s;
+        }
+        .repo-item:hover .repo-icon { background: var(--border); }
+        .repo-info { flex: 1; min-width: 0; }
+        .repo-info .name { font-size: 13px; font-weight: 500; color: var(--text); }
+        .repo-info .desc {
+            font-size: 12px; color: var(--text-secondary);
+            margin-top: 2px;
+            overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        .repo-info .meta-tags {
+            display: flex; flex-wrap: wrap;
+            gap: 0 16px;
+            margin-top: 4px;
+            font-size: 11px;
+            color: var(--text-dimmer);
+        }
+        .view-all {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--text-dimmer);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .view-all:hover { color: var(--all-hover); }
+
+        /* ─── Credentials ─── */
+        .cred-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .cred-item:last-child { border-bottom: none; }
+        .cred-icon {
+            width: 22px; height: 22px;
+            border-radius: 5px;
+            background: var(--icon-bg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 9px; color: var(--icon-text);
+            flex-shrink: 0; margin-top: 2px;
+        }
+        .cred-info { flex: 1; display: flex; justify-content: space-between; align-items: center; }
+        .cred-info .name { font-size: 13px; color: var(--text-secondary); }
+        .cred-info .by { font-size: 11px; color: var(--text-dimmer); }
+
+        /* ─── Footer ─── */
+        .footer {
+            padding: 32px 0 48px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--footer);
+        }
+        .footer a { color: var(--text-dimmer); transition: color 0.2s; }
+        .footer a:hover { color: var(--link-hover); }
+
+        /* ─── Pages ─── */
+        .page { display: none; }
+        .page.active { display: block; }
+        .back {
+            font-size: 12px;
+            color: var(--text-dimmer);
+            cursor: pointer;
+            display: inline-block;
+            transition: color 0.2s;
+        }
+        .back:hover { color: var(--back-hover); }
+
+        /* ─── Projects Grid ─── */
+        .proj-header { padding: 32px 0 20px; }
+        .proj-header h1 { font-size: 20px; font-weight: 600; color: var(--text); margin-top: 4px; }
+        .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-bottom: 60px; }
+        .proj-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+            background: var(--surface-card);
+        }
+        .proj-card:hover {
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+            transform: translateY(-2px);
+            border-color: var(--text-dim);
+        }
+        .proj-thumb {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: var(--thumb-bg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; color: var(--thumb-text);
+            font-weight: 600; font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: 0.04em;
+        }
+        .proj-body { padding: 12px 14px 14px; }
+        .proj-body .pdate { font-size: 11px; color: var(--text-dimmer); }
+        .proj-body .pname { font-size: 13px; font-weight: 600; color: var(--text); margin-top: 3px; line-height: 1.3; }
+        .proj-body .pdesc {
+            font-size: 12px; color: var(--text-secondary);
+            margin-top: 3px;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+            overflow: hidden; line-height: 1.5;
+        }
+        .proj-body .ptags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+        .proj-body .ptags span {
+            font-size: 10px;
+            color: var(--tag-text);
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--tag-bg);
+            padding: 2px 6px; border-radius: 3px;
+        }
+
+        /* ─── Detail ─── */
+        .detail { padding-bottom: 40px; }
+        .detail h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+        }
+        .detail .ddate { font-size: 12px; color: var(--text-dimmer); margin-top: 6px; }
+        .detail .dthumb {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: var(--thumb-bg);
+            border-radius: 6px;
+            margin-top: 18px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; color: var(--thumb-text);
+            font-weight: 600; font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .detail .dtags {
+            display: flex; flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 14px;
+        }
+        .detail .dtags span {
+            font-size: 11px;
+            color: var(--tag-text);
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--tag-bg);
+            padding: 3px 10px; border-radius: 4px;
+        }
+        .detail blockquote {
+            margin-top: 18px;
+            padding: 14px 18px;
+            background: var(--blockquote-bg);
+            border-left: 2px solid var(--blockquote-border);
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.6;
+            border-radius: 0 4px 4px 0;
+        }
+        .detail .dsec { margin-top: 32px; }
+        .detail .dsec h2 {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text);
+            text-transform: lowercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 12px;
+        }
+        .detail .dsec p, .detail .dsec ul { font-size: 13px; color: var(--text-secondary); }
+        .detail .dsec ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .detail .dsec ul li {
+            font-size: 12px;
+            color: var(--tag-text);
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--tag-bg);
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+        .detail .dsec ul li::before { display: none; }
+        .detail .dstats {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .detail .dstats .stat { font-size: 12px; color: var(--text-dimmer); }
+        .detail .dstats .stat span { color: var(--text); font-weight: 500; }
+        .detail .dlinks {
+            margin-top: 32px;
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 28px;
+        }
+        .detail .dlinks a {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text);
+            transition: opacity 0.2s;
+        }
+        .detail .dlinks a:hover { opacity: 0.5; }
+
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 19px; }
+            .hero .tagline { font-size: 13px; }
+            .container { padding: 0 20px; }
+            .proj-grid { grid-template-columns: 1fr; gap: 14px; }
+            .detail h1 { font-size: 18px; }
+            .proj-header h1 { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ─── HOME ─── -->
+    <div id="page-home" class="page active">
+
+        <div class="hero">
+            <h1>abdul haiy <span style="font-weight:300;font-size:18px;color:var(--text-dim);font-family:'Traditional Arabic',serif;letter-spacing:0;font-style:normal;">عبد الحي</span></h1>
+            <div class="tags">full-stack, security, ai/ml, open source, web</div>
+            <div class="tagline">i build <i>fast</i>.</div>
+            <div class="meta">
+                <span class="native mono">जबलपुर</span><br>
+                jabalpur, india
+            </div>
+            <div class="links">
+                <a class="link-underline" href="https://github.com/spike-commander/" target="_blank">github</a>
+                <a class="link-underline" href="https://www.linkedin.com/in/spike-commander/" target="_blank">linkedin</a>
+                <a class="link-underline" href="https://x.com/abdulhaiy1502" target="_blank">x/twitter</a>
+                <a class="link-underline" href="mailto:abdulhaiy1502@gmail.com">email</a>
+            </div>
+        </div>
+
+        <section class="current">
+            <div class="sec-header">
+                <h2>Current</h2>
+                <div class="line"></div>
+            </div>
+            <p>freelance full stack developer building fast, scalable web applications with react, node.js, and python. security researcher breaking down vulnerabilities. open source contributor.</p>
+        </section>
+
+        <section>
+            <div class="sec-header">
+                <h2>Previous</h2>
+                <div class="line"></div>
+            </div>
+            <div class="prev-item">
+                <div class="prev-logo">GD</div>
+                <div class="prev-info">
+                    <div class="company">gdsc — google developer student clubs</div>
+                    <div class="role">lead</div>
+                    <div class="loc">jabalpur, india</div>
+                </div>
+            </div>
+            <div class="prev-item">
+                <div class="prev-logo">AI</div>
+                <div class="prev-info">
+                    <div class="company">ai innovation challenge, techfest india</div>
+                    <div class="role">1st place — hand-gesture game control (python, mediapipe, cv)</div>
+                    <div class="loc">2024</div>
+                </div>
+            </div>
+            <div class="prev-item">
+                <div class="prev-logo">BC</div>
+                <div class="prev-info">
+                    <div class="company">blockchain hackathon, ethindia</div>
+                    <div class="role">2nd place — chainfair (solidity, web3)</div>
+                    <div class="loc">2024</div>
+                </div>
+            </div>
+            <div class="prev-item">
+                <div class="prev-logo">SI</div>
+                <div class="prev-info">
+                    <div class="company">smart india hackathon, govt. of india</div>
+                    <div class="role">top 10 — digital healthcare for rural areas</div>
+                    <div class="loc">2024</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="sec-header">
+                <h2>Builds <span class="dimmer" id="repo-count"></span></h2>
+                <div class="line"></div>
+            </div>
+            <div id="repo-list"><div class="dim" style="padding:18px 0;">loading...</div></div>
+            <span class="view-all" id="view-all-link" onclick="showProjects()">view all projects →</span>
+        </section>
+
+        <section>
+            <div class="sec-header">
+                <h2>Credentials</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cred-item"><div class="cred-icon">AW</div><div class="cred-info"><span class="name">aws certified solutions architect</span><span class="by">aws</span></div></div>
+            <div class="cred-item"><div class="cred-icon">DL</div><div class="cred-info"><span class="name">deep learning specialization</span><span class="by">deeplearning.ai</span></div></div>
+            <div class="cred-item"><div class="cred-icon">MF</div><div class="cred-info"><span class="name">meta front-end developer</span><span class="by">meta</span></div></div>
+            <div class="cred-item"><div class="cred-icon">GC</div><div class="cred-info"><span class="name">google cybersecurity certificate</span><span class="by">google</span></div></div>
+            <div class="cred-item"><div class="cred-icon">BT</div><div class="cred-info"><span class="name">b.tech in computer science</span><span class="by">2021–2025</span></div></div>
+        </section>
+
+        <div class="footer">
+            <a class="link-underline" href="https://github.com/spike-commander/" target="_blank">github</a><span class="dimmer"> / </span>
+            <a class="link-underline" href="https://www.linkedin.com/in/spike-commander/" target="_blank">linkedin</a><span class="dimmer"> / </span>
+            <a class="link-underline" href="https://x.com/abdulhaiy1502" target="_blank">x</a><span class="dimmer"> / </span>
+            <a class="link-underline" href="mailto:abdulhaiy1502@gmail.com">email</a><br><br>
+            <span class="dimmer">abdul haiy · 2026</span>
+        </div>
+    </div>
+
+    <!-- ─── PROJECTS ─── -->
+    <div id="page-projects" class="page">
+        <div class="proj-header">
+            <span class="back" onclick="showHome()">← back</span>
+            <h1>projects</h1>
+        </div>
+        <div class="proj-grid" id="project-grid">
+            <div style="grid-column:1/-1;text-align:center;padding:32px 0;color:var(--text-dimmer);">loading projects...</div>
+        </div>
+        <div class="footer" style="padding-top:0;">
+            <span class="dimmer">abdul haiy · 2026</span>
+        </div>
+    </div>
+
+    <!-- ─── DETAIL ─── -->
+    <div id="page-detail" class="page">
+        <div style="padding:32px 0 24px;">
+            <span class="back" onclick="showProjects()">← projects</span>
+        </div>
+        <div class="detail" id="detail-content">
+            <div class="dim" style="padding:60px 0;text-align:center;">loading...</div>
+        </div>
+        <div class="footer">
+            <span class="dimmer">abdul haiy · 2026</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- ─── THEME TOGGLE ─── -->
+<div class="toggle-wrap">
+    <button class="toggle-btn mono" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">✦</button>
+</div>
+
+<script>
+const colors = ['var(--c1)','var(--c2)','var(--c3)','var(--c4)','var(--c5)','var(--c6)'];
+let allRepos = [];
+let ready = false;
+
+function toggleTheme() {
+    const html = document.documentElement;
+    html.classList.toggle('light');
+    localStorage.setItem('theme', html.classList.contains('light') ? 'light' : 'dark');
+}
+
+function initTheme() {
+    const saved = localStorage.getItem('theme');
+    if (saved === 'light') document.documentElement.classList.add('light');
+    else document.documentElement.classList.remove('light');
+}
+
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showHome() {
+    showPage('page-home');
+    if (window.location.hash !== '' && window.location.hash !== '#') {
+        history.replaceState(null, '', window.location.pathname);
+    }
+    document.title = 'abdul haiy — developer & security researcher';
+}
+
+function showProjects() {
+    showPage('page-projects');
+    if (window.location.hash !== '#projects') {
+        history.replaceState(null, '', '#projects');
+    }
+    document.title = 'projects — abdul haiy';
+}
+
+function showDetail(name) {
+    showPage('page-detail');
+    const el = document.getElementById('detail-content');
+    const repo = allRepos.find(r => r.name === name);
+
+    if (!repo) {
+        el.innerHTML = !ready
+            ? '<div class="dim" style="padding:60px 0;text-align:center;">loading...</div>'
+            : '<div class="dim" style="padding:60px 0;text-align:center;">project not found.</div>';
+        return;
+    }
+
+    const expectedHash = '#project/' + encodeURIComponent(name);
+    if (window.location.hash !== expectedHash) {
+        history.replaceState(null, '', expectedHash);
+    }
+
+    const date = repo.updated_at
+        ? new Date(repo.updated_at).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })
+        : '';
+    const desc = repo.description || '';
+    const tags = [];
+    if (repo.language) tags.push(repo.language);
+    if (repo.topics) tags.push(...repo.topics);
+
+    document.title = repo.name + ' — abdul haiy';
+
+    const stars = repo.stargazers_count != null ? repo.stargazers_count : null;
+    const forks = repo.forks_count != null ? repo.forks_count : null;
+
+    el.innerHTML =
+        '<h1>' + repo.name + '</h1>' +
+        (date ? '<div class="ddate">' + date + '</div>' : '') +
+        '<div class="dthumb">' + (repo.name[0] || 'R').toUpperCase() + '</div>' +
+        (tags.length ? '<div class="dtags">' + tags.map(t => '<span>' + t + '</span>').join('') + '</div>' : '') +
+        (desc ? '<blockquote>' + desc + '</blockquote>' : '') +
+        ((stars !== null || forks !== null) ? '<div class="dstats">' +
+            (stars !== null ? '<div class="stat"><span>' + stars + '</span> stars</div>' : '') +
+            (forks !== null ? '<div class="stat"><span>' + forks + '</span> forks</div>' : '') +
+            '</div>' : '') +
+        (repo.language ? '<div class="dsec"><h2>tech stack</h2><ul><li>' + repo.language + '</li>' +
+            (repo.topics && repo.topics.length ? repo.topics.map(t => '<li>' + t + '</li>').join('') : '') +
+            '</ul></div>' : '') +
+        '<div class="dlinks">' +
+        '<a href="' + repo.html_url + '" target="_blank">view on github →</a>' +
+        (repo.homepage ? '<a href="' + repo.homepage + '" target="_blank">live demo →</a>' : '') +
+        '</div>';
+}
+
+function handleHash() {
+    const hash = window.location.hash.slice(1);
+    if (hash === 'projects') showProjects();
+    else if (hash.startsWith('project/')) showDetail(decodeURIComponent(hash.slice(8)));
+    else showHome();
+}
+
+async function loadRepos() {
+    try {
+        const res = await fetch('https://api.github.com/users/spike-commander/repos?per_page=30&sort=updated');
+        if (!res.ok) throw new Error('fail');
+        const repos = await res.json();
+        allRepos = repos.filter(r => !r.fork);
+        ready = true;
+
+        const main = ['Hand-Gesture-Game-Control', 'ChainFair'];
+        const sorted = [
+            ...allRepos.filter(r => main.includes(r.name)),
+            ...allRepos.filter(r => !main.includes(r.name))
+        ];
+
+        document.getElementById('repo-count').textContent = '· ' + allRepos.length;
+        const remaining = allRepos.length - 3;
+        document.getElementById('view-all-link').textContent =
+            remaining > 0 ? 'view all ' + allRepos.length + ' projects (' + remaining + ' more) →'
+                          : 'view all ' + allRepos.length + ' projects →';
+        document.getElementById('repo-list').innerHTML = sorted.slice(0, 3).map(r => {
+            const desc = r.description
+                ? r.description.split(/[.!\n]/)[0].substring(0, 100) + '.'
+                : '';
+            const lang = r.language
+                ? '<span class="mono">' + r.language + '</span>'
+                : '';
+            const icon = (r.name[0] || 'R').toUpperCase();
+            const safe = r.name.replace(/'/g, "\\'");
+            return '<div class="repo-item" onclick="showDetail(\'' + safe + '\')">' +
+                '<div class="repo-icon">' + icon + '</div>' +
+                '<div class="repo-info">' +
+                '<div class="name">' + r.name + '</div>' +
+                (desc ? '<div class="desc">' + desc + '</div>' : '') +
+                (lang ? '<div class="meta-tags">' + lang + '</div>' : '') +
+                '</div></div>';
+        }).join('');
+
+        document.getElementById('project-grid').innerHTML = sorted.map((r, i) => {
+            const date = r.updated_at
+                ? new Date(r.updated_at).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })
+                : '';
+            const desc = r.description
+                ? r.description.split(/[.!\n]/)[0].substring(0, 120) + '.'
+                : '';
+            const tags = r.language ? '<span>' + r.language + '</span>' : '';
+            const safe = r.name.replace(/'/g, "\\'");
+            return '<div class="proj-card" onclick="showDetail(\'' + safe + '\')">' +
+                '<div class="proj-thumb" style="background:' + colors[i % colors.length] + ';">' +
+                (r.name[0] || 'R').toUpperCase() + '</div>' +
+                '<div class="proj-body">' +
+                (date ? '<div class="pdate">' + date + '</div>' : '') +
+                '<div class="pname">' + r.name + '</div>' +
+                (desc ? '<div class="pdesc">' + desc + '</div>' : '') +
+                (tags ? '<div class="ptags">' + tags + '</div>' : '') +
+                '</div></div>';
+        }).join('');
+
+    } catch (e) {
+        document.getElementById('repo-list').innerHTML =
+            '<div class="dim" style="padding:18px 0;">failed to load repos.</div>';
+        document.getElementById('project-grid').innerHTML =
+            '<div style="grid-column:1/-1;text-align:center;padding:32px 0;color:var(--text-dimmer);">failed to load projects.</div>';
+    }
+
+    handleHash();
+}
+
+initTheme();
+window.addEventListener('hashchange', handleHash);
+loadRepos();
+</script>
+</body>
+</html>
