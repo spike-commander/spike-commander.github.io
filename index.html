@@ -32,6 +32,8 @@
             --all-hover: #fff;
             --c1: #0a0a0a; --c2: #050505; --c3: #0f0f0f;
             --c4: #080808; --c5: #111; --c6: #070707;
+            --featured-border: #1f1f1f;
+            --action-border: #1f1f1f;
         }
         .light {
             --bg: #fff;
@@ -58,6 +60,8 @@
             --all-hover: #111;
             --c1: #f0f0f0; --c2: #e8e8e8; --c3: #f5f0e8;
             --c4: #eef0f5; --c5: #f5eeef; --c6: #eef5ee;
+            --featured-border: #e5e5e5;
+            --action-border: #e5e5e5;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -82,7 +86,6 @@
 
         .container { max-width: 620px; margin: 0 auto; padding: 0 24px; }
 
-        /* ─── Theme Toggle ─── */
         .toggle-wrap {
             position: fixed;
             bottom: 24px;
@@ -110,7 +113,6 @@
             color: var(--text);
         }
 
-        /* ─── Hero ─── */
         .hero { padding-top: 40px; padding-bottom: 40px; }
         .hero h1 {
             font-size: 22px;
@@ -151,7 +153,6 @@
         .hero .links a { transition: color 0.2s; }
         .hero .links a:hover { color: var(--link-hover); }
 
-        /* ─── Sections ─── */
         section { padding: 32px 0; }
         .sec-header {
             display: flex;
@@ -181,7 +182,6 @@
             line-height: 1.7;
         }
 
-        /* ─── Previous ─── */
         .prev-item {
             display: flex;
             gap: 14px;
@@ -203,7 +203,6 @@
         .prev-info .role { font-size: 12px; color: var(--text-secondary); margin-top: 1px; }
         .prev-info .loc { font-size: 11px; color: var(--text-dimmer); margin-top: 1px; }
 
-        /* ─── Builds ─── */
         .repo-item {
             display: flex;
             gap: 14px;
@@ -253,7 +252,6 @@
         }
         .view-all:hover { color: var(--all-hover); }
 
-        /* ─── Credentials ─── */
         .cred-item {
             display: flex;
             gap: 14px;
@@ -274,7 +272,6 @@
         .cred-info .name { font-size: 13px; color: var(--text-secondary); }
         .cred-info .by { font-size: 11px; color: var(--text-dimmer); }
 
-        /* ─── Footer ─── */
         .footer {
             padding: 32px 0 48px;
             text-align: center;
@@ -284,7 +281,6 @@
         .footer a { color: var(--text-dimmer); transition: color 0.2s; }
         .footer a:hover { color: var(--link-hover); }
 
-        /* ─── Pages ─── */
         .page { display: none; }
         .page.active { display: block; }
         .back {
@@ -296,9 +292,9 @@
         }
         .back:hover { color: var(--back-hover); }
 
-        /* ─── Projects Grid ─── */
         .proj-header { padding: 32px 0 20px; }
         .proj-header h1 { font-size: 20px; font-weight: 600; color: var(--text); margin-top: 4px; }
+
         .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding-bottom: 60px; }
         .proj-card {
             border: 1px solid var(--border);
@@ -339,8 +335,166 @@
             background: var(--tag-bg);
             padding: 2px 6px; border-radius: 3px;
         }
+        .proj-body .pactions {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--action-border);
+        }
+        .proj-body .pactions a {
+            font-size: 10px;
+            font-weight: 500;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dimmer);
+            transition: color 0.2s;
+        }
+        .proj-body .pactions a:hover { color: var(--text); }
 
-        /* ─── Detail ─── */
+        .featured-section { padding-bottom: 16px; }
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .featured-card {
+            border: 1px solid var(--featured-border);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: box-shadow 0.25s, border-color 0.25s;
+            background: var(--surface-card);
+        }
+        .featured-card:hover {
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+            border-color: var(--text-dim);
+        }
+        .featured-flex {
+            display: flex;
+            gap: 0;
+        }
+        .featured-thumb {
+            width: 120px;
+            min-height: 120px;
+            flex-shrink: 0;
+            background: var(--thumb-bg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px; color: var(--thumb-text);
+            font-weight: 600; font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .featured-body {
+            flex: 1;
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+        }
+        .featured-body .pimpact {
+            font-size: 10px;
+            font-weight: 600;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .featured-body .pname {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 3px;
+            line-height: 1.3;
+        }
+        .featured-body .pdesc {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+            line-height: 1.5;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .featured-body .ptags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 8px;
+        }
+        .featured-body .ptags span {
+            font-size: 10px;
+            color: var(--tag-text);
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--tag-bg);
+            padding: 2px 6px; border-radius: 3px;
+        }
+        .featured-body .pactions {
+            display: flex;
+            gap: 18px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--action-border);
+        }
+        .featured-body .pactions a {
+            font-size: 11px;
+            font-weight: 500;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dimmer);
+            transition: color 0.2s;
+        }
+        .featured-body .pactions a:hover { color: var(--text); }
+
+        .pipeline-section { padding-top: 8px; }
+        .pipeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .pipe-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            background: var(--surface-card);
+        }
+        .pipe-card:hover { border-color: var(--text-dim); }
+        .pipe-body { padding: 10px 12px 12px; }
+        .pipe-body .pname {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+        }
+        .pipe-body .pdesc {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+            display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.4;
+        }
+        .pipe-body .ptags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 6px;
+        }
+        .pipe-body .ptags span {
+            font-size: 9px;
+            color: var(--tag-text);
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--tag-bg);
+            padding: 1px 5px; border-radius: 2px;
+        }
+        .pipe-body .pactions {
+            display: flex;
+            gap: 14px;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid var(--action-border);
+        }
+        .pipe-body .pactions a {
+            font-size: 9px;
+            font-weight: 500;
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dimmer);
+            transition: color 0.2s;
+        }
+        .pipe-body .pactions a:hover { color: var(--text); }
+
         .detail { padding-bottom: 40px; }
         .detail h1 {
             font-size: 20px;
@@ -436,6 +590,8 @@
             .hero .tagline { font-size: 13px; }
             .container { padding: 0 20px; }
             .proj-grid { grid-template-columns: 1fr; gap: 14px; }
+            .pipeline-grid { grid-template-columns: 1fr; gap: 12px; }
+            .featured-thumb { width: 90px; min-height: 90px; font-size: 18px; }
             .detail h1 { font-size: 18px; }
             .proj-header h1 { font-size: 18px; }
         }
@@ -461,6 +617,7 @@
                 <a class="link-underline" href="https://www.linkedin.com/in/spike-commander/" target="_blank">linkedin</a>
                 <a class="link-underline" href="https://x.com/abdulhaiy1502" target="_blank">x/twitter</a>
                 <a class="link-underline" href="mailto:abdulhaiy1502@gmail.com">email</a>
+                <a class="link-underline" href="./Abdul%20Haiy%20-%20Resume.pdf" target="_blank">resume</a>
             </div>
         </div>
 
@@ -513,10 +670,10 @@
 
         <section>
             <div class="sec-header">
-                <h2>Builds <span class="dimmer" id="repo-count"></span></h2>
+                <h2>Featured Implementations</h2>
                 <div class="line"></div>
             </div>
-            <div id="repo-list"><div class="dim" style="padding:18px 0;">loading...</div></div>
+            <div id="home-featured"></div>
             <span class="view-all" id="view-all-link" onclick="showProjects()">view all projects →</span>
         </section>
 
@@ -547,9 +704,7 @@
             <span class="back" onclick="showHome()">← back</span>
             <h1>projects</h1>
         </div>
-        <div class="proj-grid" id="project-grid">
-            <div style="grid-column:1/-1;text-align:center;padding:32px 0;color:var(--text-dimmer);">loading projects...</div>
-        </div>
+        <div id="project-content"></div>
         <div class="footer" style="padding-top:0;">
             <span class="dimmer">abdul haiy · 2026</span>
         </div>
@@ -560,9 +715,7 @@
         <div style="padding:32px 0 24px;">
             <span class="back" onclick="showProjects()">← projects</span>
         </div>
-        <div class="detail" id="detail-content">
-            <div class="dim" style="padding:60px 0;text-align:center;">loading...</div>
-        </div>
+        <div class="detail" id="detail-content"></div>
         <div class="footer">
             <span class="dimmer">abdul haiy · 2026</span>
         </div>
@@ -570,15 +723,187 @@
 
 </div>
 
-<!-- ─── THEME TOGGLE ─── -->
 <div class="toggle-wrap">
     <button class="toggle-btn mono" id="theme-btn" onclick="toggleTheme()" title="Toggle theme">✦</button>
 </div>
 
+<script id="projects-data" type="application/json">
+[
+    {
+        "name": "Hand-Gesture-Game-Control",
+        "description": "A real-time computer vision project that uses hand gesture recognition via webcam to automate gameplay actions in game Subway Surfers. This system detects hand landmarks using MediaPipe and converts gestures into keyboard commands using PyAutoGUI, enabling hands-free gaming interaction.",
+        "language": "Python",
+        "html_url": "https://github.com/spike-commander/Hand-Gesture-Game-Control",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 1,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:03:02Z",
+        "created_at": "2026-02-12T09:03:42Z",
+        "topics": ["mediapipe", "pyautogui", "pygame", "python"],
+        "framework": "MediaPipe, OpenCV, Python, PyAutoGUI",
+        "impact": "1st Place — AI Innovation Challenge, Techfest India 2024"
+    },
+    {
+        "name": "ChainFair",
+        "description": "ChainFair is a decentralized application (DApp) that brings radical transparency to agricultural supply chains in India. When a consumer picks up a mango at a store in Mumbai, they have no idea how much of the ₹200 price actually reached the farmer in Jabalpur who grew it.",
+        "language": "JavaScript",
+        "html_url": "https://github.com/spike-commander/ChainFair",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 1,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:06:06Z",
+        "created_at": "2026-03-19T10:29:29Z",
+        "topics": ["blockchain", "blockchain-technology", "dapp"],
+        "framework": "Solidity, Ethereum, Web3.js, JavaScript",
+        "impact": "2nd Place — Blockchain Hackathon, ETHIndia 2024"
+    },
+    {
+        "name": "promptforge",
+        "description": "A fully deployable AI Prompt Optimizer SaaS built with modern tech stack. Transform your prompts for better LLM outputs from GPT-4o, Claude 3.5, and Gemini 1.5 Pro.",
+        "language": "TypeScript",
+        "html_url": "https://github.com/spike-commander/promptforge",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 1,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:05:16Z",
+        "created_at": "2026-04-26T11:08:45Z",
+        "topics": ["prompt-optimization-tools", "prompt-optimizer", "saas-application"],
+        "framework": "Next.js, TypeScript, Vercel AI SDK",
+        "impact": "Full-Stack AI SaaS Platform — GPT-4o, Claude 3.5, Gemini 1.5 Pro"
+    },
+    {
+        "name": "Gmail-Manager-Pro",
+        "description": "A powerful Chrome Extension for advanced Gmail management — smart triage, bulk actions, rule-based sorting, and productivity tools, all within a sleek side panel.",
+        "language": "JavaScript",
+        "html_url": "https://github.com/spike-commander/Gmail-Manager-Pro",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 1,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:09:27Z",
+        "created_at": "2026-03-23T14:49:30Z",
+        "topics": ["css", "html", "javascript", "optimization"],
+        "framework": "Chrome Extension API, JavaScript, DOM API",
+        "impact": ""
+    },
+    {
+        "name": "SecureBitchat",
+        "description": "SecureBitchat is a security-hardened version of the decentralized Bluetooth mesh chat app BitChat. It maintains the core principles of offline BLE mesh communication, decentralized architecture, and P2P networking while implementing significant security improvements.",
+        "language": "Swift",
+        "html_url": "https://github.com/spike-commander/SecureBitchat",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 1,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:08:38Z",
+        "created_at": "2026-04-16T07:07:46Z",
+        "topics": ["application-code", "bitchat", "ruby", "swift"],
+        "framework": "Swift, BLE Mesh, CryptoKit, P2P Networking",
+        "impact": ""
+    },
+    {
+        "name": "SecureBitchatAndroid",
+        "description": "A hardened security fork of BitChat for Android with production-ready security and private rooms.",
+        "language": "HTML",
+        "html_url": "https://github.com/spike-commander/SecureBitchatAndroid",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 1,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:07:38Z",
+        "created_at": "2026-04-16T06:22:57Z",
+        "topics": ["bitchat-android", "bitchat-secure", "kotlin", "kotlin-android"],
+        "framework": "Kotlin, Android SDK, BLE Mesh, Security API",
+        "impact": ""
+    },
+    {
+        "name": "AgriConnect",
+        "description": "AgriConnect is a smart farming web platform that digitally connects farmers, labourers, and businesses. Farmers can post and sell their crops directly, labourers can find agricultural job opportunities, and businesses can buy fresh produce.",
+        "language": "HTML",
+        "html_url": "https://github.com/spike-commander/AgriConnect",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 1,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:11:56Z",
+        "created_at": "2025-10-29T07:38:31Z",
+        "topics": ["css", "html", "javascript"],
+        "framework": "HTML5, CSS3, JavaScript, Firebase",
+        "impact": ""
+    },
+    {
+        "name": "FRIDAY-CLI",
+        "description": "A voice + text AI assistant for the command line, powered by Google Gemini and Groq.",
+        "language": "TypeScript",
+        "html_url": "https://github.com/spike-commander/FRIDAY-CLI",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 0,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:04:06Z",
+        "created_at": "2026-06-10T14:34:12Z",
+        "topics": ["cli", "commandline-interface", "commandline-tool"],
+        "framework": "TypeScript, Node.js, Google Gemini API, Groq SDK",
+        "impact": ""
+    },
+    {
+        "name": "MedVerify",
+        "description": "I have successfully created MedVerify, a premium web platform designed to provide transparency for hospital billing based on government-mandated rates (CGHS/PM-JAY).",
+        "language": "JavaScript",
+        "html_url": "https://github.com/spike-commander/MedVerify",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 0,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:02:05Z",
+        "created_at": "2026-02-24T15:47:10Z",
+        "topics": ["css", "html", "js"],
+        "framework": "JavaScript, Node.js, Government API Integration",
+        "impact": "Smart India Hackathon 2024 — Top 10 Finalist"
+    },
+    {
+        "name": "LuxeStore-Premium-Ecommerce-Website",
+        "description": "LuxeStore is a sophisticated, single-page e-commerce application designed for a premium shopping experience. Featuring a clean aesthetic and seamless interactions.",
+        "language": "HTML",
+        "html_url": "https://github.com/spike-commander/LuxeStore-Premium-Ecommerce-Website",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 1,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:00:25Z",
+        "created_at": "2026-03-06T11:11:04Z",
+        "topics": ["ecommerce-website", "real", "server-based"],
+        "framework": "HTML5, CSS3, JavaScript, IndexedDB",
+        "impact": ""
+    },
+    {
+        "name": "COMMUNITY-CONNECT",
+        "description": "Community Connect is a web-based platform using HTML, CSS, and JS. It provides real-time labour job alerts, business updates, and hospital emergency availability.",
+        "language": "JavaScript",
+        "html_url": "https://github.com/spike-commander/COMMUNITY-CONNECT",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 1,
+        "forks": 0,
+        "updated_at": "2026-06-24T08:59:23Z",
+        "created_at": "2025-10-28T06:47:44Z",
+        "topics": ["block", "css", "html", "js", "real-time"],
+        "framework": "JavaScript, Firebase, Real-Time Database",
+        "impact": ""
+    },
+    {
+        "name": "Iris-Classification-Machine-Learning-Model",
+        "description": "A machine learning project that classifies Iris flower species using Logistic Regression. Built to demonstrate foundational concepts of data preprocessing, feature utilization, and categorical classification.",
+        "language": "Jupyter Notebook",
+        "html_url": "https://github.com/spike-commander/Iris-Classification-Machine-Learning-Model",
+        "homepage": "https://spike-commander.github.io/",
+        "stars": 0,
+        "forks": 0,
+        "updated_at": "2026-06-24T09:06:46Z",
+        "created_at": "2026-06-24T08:35:16Z",
+        "topics": ["logistic-regression", "mechine-learning", "ml"],
+        "framework": "Jupyter, Python, scikit-learn, Logistic Regression",
+        "impact": ""
+    }
+]
+</script>
+
 <script>
 const colors = ['var(--c1)','var(--c2)','var(--c3)','var(--c4)','var(--c5)','var(--c6)'];
+
 let allRepos = [];
-let ready = false;
 
 function toggleTheme() {
     const html = document.documentElement;
@@ -618,35 +943,29 @@ function showDetail(name) {
     showPage('page-detail');
     const el = document.getElementById('detail-content');
     const repo = allRepos.find(r => r.name === name);
-
     if (!repo) {
-        el.innerHTML = !ready
-            ? '<div class="dim" style="padding:60px 0;text-align:center;">loading...</div>'
-            : '<div class="dim" style="padding:60px 0;text-align:center;">project not found.</div>';
+        el.innerHTML = '<div class="dim" style="padding:60px 0;text-align:center;">project not found.</div>';
         return;
     }
-
     const expectedHash = '#project/' + encodeURIComponent(name);
     if (window.location.hash !== expectedHash) {
         history.replaceState(null, '', expectedHash);
     }
-
     const date = repo.updated_at
         ? new Date(repo.updated_at).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })
         : '';
     const desc = repo.description || '';
     const tags = [];
-    if (repo.language) tags.push(repo.language);
+    if (repo.framework) tags.push(repo.framework);
     if (repo.topics) tags.push(...repo.topics);
-
     document.title = repo.name + ' — abdul haiy';
-
-    const stars = repo.stargazers_count != null ? repo.stargazers_count : null;
-    const forks = repo.forks_count != null ? repo.forks_count : null;
-
+    const stars = repo.stars != null ? repo.stars : null;
+    const forks = repo.forks != null ? repo.forks : null;
+    const impactHtml = repo.impact ? '<div class="ddate" style="margin-top:10px;color:var(--text-dim);font-family:Manrope,sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:0.03em;">' + repo.impact + '</div>' : '';
     el.innerHTML =
         '<h1>' + repo.name + '</h1>' +
         (date ? '<div class="ddate">' + date + '</div>' : '') +
+        impactHtml +
         '<div class="dthumb">' + (repo.name[0] || 'R').toUpperCase() + '</div>' +
         (tags.length ? '<div class="dtags">' + tags.map(t => '<span>' + t + '</span>').join('') + '</div>' : '') +
         (desc ? '<blockquote>' + desc + '</blockquote>' : '') +
@@ -654,12 +973,12 @@ function showDetail(name) {
             (stars !== null ? '<div class="stat"><span>' + stars + '</span> stars</div>' : '') +
             (forks !== null ? '<div class="stat"><span>' + forks + '</span> forks</div>' : '') +
             '</div>' : '') +
-        (repo.language ? '<div class="dsec"><h2>tech stack</h2><ul><li>' + repo.language + '</li>' +
+        (repo.framework ? '<div class="dsec"><h2>tech stack</h2><ul><li>' + repo.framework + '</li>' +
             (repo.topics && repo.topics.length ? repo.topics.map(t => '<li>' + t + '</li>').join('') : '') +
             '</ul></div>' : '') +
         '<div class="dlinks">' +
-        '<a href="' + repo.html_url + '" target="_blank">view on github →</a>' +
-        (repo.homepage ? '<a href="' + repo.homepage + '" target="_blank">live demo →</a>' : '') +
+        '<a href="' + repo.html_url + '" target="_blank">[ source code ] →</a>' +
+        (repo.homepage ? '<a href="' + repo.homepage + '" target="_blank">[ live demo ] →</a>' : '') +
         '</div>';
 }
 
@@ -670,76 +989,102 @@ function handleHash() {
     else showHome();
 }
 
-async function loadRepos() {
-    try {
-        const res = await fetch('https://api.github.com/users/spike-commander/repos?per_page=30&sort=updated');
-        if (!res.ok) throw new Error('fail');
-        const repos = await res.json();
-        allRepos = repos.filter(r => !r.fork);
-        ready = true;
-
-        const main = ['Hand-Gesture-Game-Control', 'ChainFair'];
-        const sorted = [
-            ...allRepos.filter(r => main.includes(r.name)),
-            ...allRepos.filter(r => !main.includes(r.name))
-        ];
-
-        document.getElementById('repo-count').textContent = '· ' + allRepos.length;
-        const remaining = allRepos.length - 3;
-        document.getElementById('view-all-link').textContent =
-            remaining > 0 ? 'view all ' + allRepos.length + ' projects (' + remaining + ' more) →'
-                          : 'view all ' + allRepos.length + ' projects →';
-        document.getElementById('repo-list').innerHTML = sorted.slice(0, 3).map(r => {
-            const desc = r.description
-                ? r.description.split(/[.!\n]/)[0].substring(0, 100) + '.'
-                : '';
-            const lang = r.language
-                ? '<span class="mono">' + r.language + '</span>'
-                : '';
+function renderFeatured(repos) {
+    const homeEl = document.getElementById('home-featured');
+    const projectEl = document.getElementById('project-content');
+    const featured = repos.filter(r => r.featured);
+    const pipeline = repos.filter(r => !r.featured);
+    homeEl.innerHTML = '<div class="featured-grid">' + featured.map((r, i) => {
+        const date = r.updated_at ? new Date(r.updated_at).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }) : '';
+        const desc = r.description ? r.description.split(/[.!\n]/)[0].substring(0, 120) + '.' : '';
+        const lang = r.framework ? '<span>' + r.framework + '</span>' : '';
+        const icon = (r.name[0] || 'R').toUpperCase();
+        const safe = r.name.replace(/'/g, "\\'");
+        const impactTag = r.impact ? '<div class="pimpact">' + r.impact + '</div>' : '';
+        return '<div class="featured-card" onclick="showDetail(\'' + safe + '\')">' +
+            '<div class="featured-flex">' +
+            '<div class="featured-thumb" style="background:' + colors[i % colors.length] + ';">' + icon + '</div>' +
+            '<div class="featured-body">' +
+            impactTag +
+            '<div class="pname">' + r.name + '</div>' +
+            (date ? '<div class="pdate" style="font-size:11px;color:var(--text-dimmer);margin-top:2px;">' + date + '</div>' : '') +
+            (desc ? '<div class="pdesc">' + desc + '</div>' : '') +
+            (lang ? '<div class="ptags">' + lang + '</div>' : '') +
+            '<div class="pactions">' +
+            '<a href="' + r.html_url + '" target="_blank" onclick="event.stopPropagation()">[ source code ]</a>' +
+            (r.homepage ? '<a href="' + r.homepage + '" target="_blank" onclick="event.stopPropagation()">[ live demo ]</a>' : '') +
+            '</div></div></div></div>';
+    }).join('') + '</div>';
+    projectEl.innerHTML =
+        '<div class="featured-section"><div class="sec-header"><h2>Featured Implementations</h2><div class="line"></div></div>' +
+        '<div class="featured-grid">' + featured.map((r, i) => {
+            const date = r.updated_at ? new Date(r.updated_at).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' }) : '';
+            const desc = r.description ? r.description.split(/[.!\n]/)[0].substring(0, 120) + '.' : '';
+            const lang = r.framework ? '<span>' + r.framework + '</span>' : '';
             const icon = (r.name[0] || 'R').toUpperCase();
             const safe = r.name.replace(/'/g, "\\'");
-            return '<div class="repo-item" onclick="showDetail(\'' + safe + '\')">' +
-                '<div class="repo-icon">' + icon + '</div>' +
-                '<div class="repo-info">' +
-                '<div class="name">' + r.name + '</div>' +
-                (desc ? '<div class="desc">' + desc + '</div>' : '') +
-                (lang ? '<div class="meta-tags">' + lang + '</div>' : '') +
-                '</div></div>';
-        }).join('');
-
-        document.getElementById('project-grid').innerHTML = sorted.map((r, i) => {
-            const date = r.updated_at
-                ? new Date(r.updated_at).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })
-                : '';
-            const desc = r.description
-                ? r.description.split(/[.!\n]/)[0].substring(0, 120) + '.'
-                : '';
-            const tags = r.language ? '<span>' + r.language + '</span>' : '';
+            const impactTag = r.impact ? '<div class="pimpact">' + r.impact + '</div>' : '';
+            return '<div class="featured-card" onclick="showDetail(\'' + safe + '\')">' +
+                '<div class="featured-flex">' +
+                '<div class="featured-thumb" style="background:' + colors[i % colors.length] + ';">' + icon + '</div>' +
+                '<div class="featured-body">' +
+                impactTag +
+                '<div class="pname">' + r.name + '</div>' +
+                (date ? '<div class="pdate" style="font-size:11px;color:var(--text-dimmer);margin-top:2px;">' + date + '</div>' : '') +
+                (desc ? '<div class="pdesc">' + desc + '</div>' : '') +
+                (lang ? '<div class="ptags">' + lang + '</div>' : '') +
+                '<div class="pactions">' +
+                '<a href="' + r.html_url + '" target="_blank" onclick="event.stopPropagation()">[ source code ]</a>' +
+                (r.homepage ? '<a href="' + r.homepage + '" target="_blank" onclick="event.stopPropagation()">[ live demo ]</a>' : '') +
+                '</div></div></div></div>';
+        }).join('') + '</div></div>' +
+        '<div class="pipeline-section"><div class="sec-header"><h2>System Builds Pipeline</h2><div class="line"></div></div>' +
+        '<div class="pipeline-grid">' + pipeline.map((r, i) => {
+            const desc = r.description ? r.description.split(/[.!\n]/)[0].substring(0, 100) + '.' : '';
+            const lang = r.framework ? '<span>' + r.framework + '</span>' : '';
             const safe = r.name.replace(/'/g, "\\'");
-            return '<div class="proj-card" onclick="showDetail(\'' + safe + '\')">' +
-                '<div class="proj-thumb" style="background:' + colors[i % colors.length] + ';">' +
-                (r.name[0] || 'R').toUpperCase() + '</div>' +
-                '<div class="proj-body">' +
-                (date ? '<div class="pdate">' + date + '</div>' : '') +
+            return '<div class="pipe-card" onclick="showDetail(\'' + safe + '\')">' +
+                '<div class="pipe-body">' +
                 '<div class="pname">' + r.name + '</div>' +
                 (desc ? '<div class="pdesc">' + desc + '</div>' : '') +
-                (tags ? '<div class="ptags">' + tags + '</div>' : '') +
-                '</div></div>';
-        }).join('');
-
-    } catch (e) {
-        document.getElementById('repo-list').innerHTML =
-            '<div class="dim" style="padding:18px 0;">failed to load repos.</div>';
-        document.getElementById('project-grid').innerHTML =
-            '<div style="grid-column:1/-1;text-align:center;padding:32px 0;color:var(--text-dimmer);">failed to load projects.</div>';
+                (lang ? '<div class="ptags">' + lang + '</div>' : '') +
+                '<div class="pactions">' +
+                '<a href="' + r.html_url + '" target="_blank" onclick="event.stopPropagation()">[ source code ]</a>' +
+                (r.homepage ? '<a href="' + r.homepage + '" target="_blank" onclick="event.stopPropagation()">[ demo ]</a>' : '') +
+                '</div></div></div>';
+        }).join('') + '</div></div>';
+    const remaining = pipeline.length;
+    const viewAll = document.getElementById('view-all-link');
+    if (viewAll) {
+        viewAll.textContent =
+            remaining > 0 ? 'view all ' + repos.length + ' projects (' + remaining + ' more) →'
+                          : 'view all ' + repos.length + ' projects →';
     }
+}
 
+function initApp() {
+    const dataEl = document.getElementById('projects-data');
+    if (dataEl) {
+        try {
+            const raw = JSON.parse(dataEl.textContent);
+            const main = ['Hand-Gesture-Game-Control', 'ChainFair'];
+            const sorted = [
+                ...raw.filter(r => main.includes(r.name)),
+                ...raw.filter(r => !main.includes(r.name))
+            ];
+            sorted.forEach(r => r.featured = main.includes(r.name));
+            allRepos = sorted;
+        } catch(e) {
+            allRepos = [];
+        }
+    }
+    renderFeatured(allRepos);
     handleHash();
 }
 
 initTheme();
 window.addEventListener('hashchange', handleHash);
-loadRepos();
+initApp();
 </script>
 </body>
 </html>
